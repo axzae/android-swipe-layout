@@ -40,9 +40,9 @@ android {
 
 dependencies {
     implementation(project(":library"))
-    implementation("com.android.support:recyclerview-v7:25.2.0")
+    implementation("androidx.recyclerview:recyclerview:1.1.0")
     implementation("com.daimajia.easing:library:1.0.0@aar")
     implementation("com.daimajia.androidanimations:library:1.1.2@aar")
     implementation("com.nineoldandroids:library:2.4.0")
-    implementation("jp.wasabeef:recyclerview-animators:1.0.3@aar")
+    implementation("jp.wasabeef:recyclerview-animators:4.0.2")
 }

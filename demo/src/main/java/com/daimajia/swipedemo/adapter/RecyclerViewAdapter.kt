@@ -1,7 +1,6 @@
 package com.daimajia.swipedemo.adapter
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView.ViewHolder
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.recyclerview.widget.RecyclerView
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
 import com.daimajia.swipe.SimpleSwipeListener
@@ -21,7 +21,7 @@ class RecyclerViewAdapter(
     private val mContext: Context,
     private val mDataset: ArrayList<String>,
 ) : RecyclerSwipeAdapter<SimpleViewHolder>() {
-    class SimpleViewHolder(itemView: View) : ViewHolder(itemView) {
+    class SimpleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var swipeLayout: SwipeLayout
         var textViewPos: TextView
         var textViewData: TextView
@@ -32,12 +32,14 @@ class RecyclerViewAdapter(
             textViewPos = itemView.findViewById<View>(R.id.position) as TextView
             textViewData = itemView.findViewById<View>(R.id.text_data) as TextView
             buttonDelete = itemView.findViewById<View>(R.id.delete) as Button
-            itemView.setOnClickListener(object : View.OnClickListener {
-                override fun onClick(view: View) {
-                    Log.d(javaClass.simpleName, "onItemSelected: " + textViewData.text.toString())
-                    Toast.makeText(view.context, "onItemSelected: " + textViewData.text.toString(), Toast.LENGTH_SHORT).show()
-                }
-            },)
+            itemView.setOnClickListener(
+                object : View.OnClickListener {
+                    override fun onClick(view: View) {
+                        Log.d(javaClass.simpleName, "onItemSelected: " + textViewData.text.toString())
+                        Toast.makeText(view.context, "onItemSelected: " + textViewData.text.toString(), Toast.LENGTH_SHORT).show()
+                    }
+                },
+            )
         }
     }
 
@@ -49,11 +51,13 @@ class RecyclerViewAdapter(
     override fun onBindViewHolder(viewHolder: SimpleViewHolder, position: Int) {
         val item = mDataset[position]
         viewHolder.swipeLayout.showMode = SwipeLayout.ShowMode.LayDown
-        viewHolder.swipeLayout.addSwipeListener(object : SimpleSwipeListener() {
-            override fun onOpen(layout: SwipeLayout) {
-                YoYo.with(Techniques.Tada).duration(500).delay(100).playOn(layout.findViewById(R.id.trash))
-            }
-        },)
+        viewHolder.swipeLayout.addSwipeListener(
+            object : SimpleSwipeListener() {
+                override fun onOpen(layout: SwipeLayout) {
+                    YoYo.with(Techniques.Tada).duration(500).delay(100).playOn(layout.findViewById(R.id.trash))
+                }
+            },
+        )
         viewHolder.swipeLayout.setOnDoubleClickListener { layout, surface -> Toast.makeText(mContext, "DoubleClick", Toast.LENGTH_SHORT).show() }
         viewHolder.buttonDelete.setOnClickListener { view ->
             mItemManger.removeShownLayouts(viewHolder.swipeLayout)

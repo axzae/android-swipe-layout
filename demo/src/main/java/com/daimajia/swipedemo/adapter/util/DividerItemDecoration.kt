@@ -4,11 +4,11 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Rect
 import android.graphics.drawable.Drawable
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.RecyclerView.ItemDecoration
 import android.util.AttributeSet
 import android.view.View
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 
 class DividerItemDecoration : ItemDecoration {
     private var mDivider: Drawable?
@@ -125,9 +125,7 @@ class DividerItemDecoration : ItemDecoration {
             val layoutManager = parent.layoutManager as LinearLayoutManager
             layoutManager.orientation
         } else {
-            throw IllegalStateException(
-                "DividerItemDecoration can only be used with a LinearLayoutManager.",
-            )
+            error("DividerItemDecoration can only be used with a LinearLayoutManager.")
         }
     }
 }

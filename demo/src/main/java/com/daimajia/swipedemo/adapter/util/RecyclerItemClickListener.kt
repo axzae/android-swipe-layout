@@ -1,14 +1,13 @@
 package com.daimajia.swipedemo.adapter.util
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.RecyclerView.OnItemTouchListener
 import android.view.GestureDetector
 import android.view.GestureDetector.SimpleOnGestureListener
 import android.view.MotionEvent
 import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerItemClickListener(context: Context?, private val mListener: OnItemClickListener?) : OnItemTouchListener {
+class RecyclerItemClickListener(context: Context?, private val mListener: OnItemClickListener?) : RecyclerView.OnItemTouchListener {
     interface OnItemClickListener {
         fun onItemClick(view: View?, position: Int)
     }

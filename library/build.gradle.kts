@@ -23,8 +23,8 @@ android {
 }
 
 dependencies {
-    implementation("com.android.support:recyclerview-v7:25.2.0")
-    implementation("com.android.support:support-v4:25.2.0")
+    implementation("androidx.recyclerview:recyclerview:1.3.0")
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
 }
 
 // TODO migrate publish settings
