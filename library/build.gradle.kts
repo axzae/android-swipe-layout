@@ -2,6 +2,7 @@
 
 plugins {
     id("com.android.library")
+    id("org.jetbrains.kotlin.android")
 }
 
 android {
@@ -10,6 +11,14 @@ android {
 
     defaultConfig {
         minSdk = Setup.minSdk
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+        freeCompilerArgs = freeCompilerArgs + listOf(
+            "-opt-in=kotlin.RequiresOptIn",
+            "-Xjvm-default=enable",
+        )
     }
 }
 

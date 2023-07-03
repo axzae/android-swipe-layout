@@ -2,6 +2,8 @@
 
 plugins {
     id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+    id("org.jlleitschuh.gradle.ktlint")
 }
 
 android {
@@ -18,12 +20,21 @@ android {
 
         resValue("string", "app_name", Setup.App.name)
     }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
             proguardFile(getDefaultProguardFile("proguard-android.txt"))
             proguardFile("proguard-rules.pro")
         }
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+        freeCompilerArgs = freeCompilerArgs + listOf(
+            "-opt-in=kotlin.RequiresOptIn",
+            "-Xjvm-default=enable",
+        )
     }
 }
 
