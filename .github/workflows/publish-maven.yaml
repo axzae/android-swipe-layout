@@ -1,0 +1,33 @@
+name: Publish Plugin to Maven
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  gradle:
+    runs-on: ubuntu-latest
+    env:
+      GRADLE_PUBLISH_KEY: ${{ secrets.GRADLE_PUBLISH_KEY }}
+      GRADLE_PUBLISH_SECRET: ${{ secrets.GRADLE_PUBLISH_SECRET }}
+      GPG_SIGNING_KEY: ${{ secrets.GPG_SIGNING_KEY }}
+      GPG_SIGNING_PASSWORD: ${{ secrets.GPG_SIGNING_PASSWORD }}
+      SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
+      SONATYPE_SECRET: ${{ secrets.SONATYPE_SECRET }}
+    if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+      - name: Set up our JDK environment
+        uses: actions/setup-java@v3.10.0
+        with:
+          distribution: 'corretto'
+          java-version: 17
+      - name: Cache Gradle Caches
+        uses: gradle/gradle-build-action@v2
+      - name: Run Gradle tasks
+        run: ./gradlew preMerge --continue
+      - name: Publish on Maven Central
+        run: ./gradlew publishMavenJavaPublicationToMavenRepository
+        if: success()
