@@ -2,7 +2,7 @@
 
 <p>
 
-[![build](https://img.shields.io/github/actions/workflow/status/axzae/android-swipe-layout/pre-merge.yaml?branch=main)][actions]
+[![build](https://img.shields.io/github/actions/workflow/status/axzae/android-swipe-layout/pre-merge.yaml?branch=master)][actions]
 [![github tag](https://img.shields.io/github/v/tag/axzae/android-swipe-layout?label=github)][releases]
 [![maven central](https://img.shields.io/maven-central/v/com.axzae/swipelayout)][mavencentral]
 
