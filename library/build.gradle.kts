@@ -27,14 +27,21 @@ dependencies {
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
 }
 
-// TODO migrate publish settings
-// apply from: "./gradle-mvn-push.gradle"
+apply(from = "$projectDir/publish.gradle.kts")
 
-// build a jar with source files
-// task sourcesJar(type: Jar) {
-//    from android.sourceSets.main.java.srcDirs
-//    classifier = "sources"
-// }
-// artifacts {
-//    archives sourcesJar
-// }
+tasks {
+    val sourcesJar by creating(Jar::class) {
+        archiveClassifier.set("sources")
+        from(android.sourceSets.getByName("main").java.srcDirs)
+    }
+
+    artifacts {
+        archives(sourcesJar)
+    }
+}
+
+project.afterEvaluate {
+    project.tasks["publishMavenJavaPublicationToMavenLocal"].dependsOn("bundleReleaseAar")
+    project.tasks["publishMavenJavaPublicationToMavenRepository"].dependsOn("bundleReleaseAar")
+    project.tasks["signMavenJavaPublication"].dependsOn("bundleReleaseAar")
+}
