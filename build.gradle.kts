@@ -11,3 +11,10 @@ buildscript {
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.21")
     }
 }
+
+tasks.register("preMerge") {
+    description = "Runs all the tests/verification tasks on both top level and included build."
+
+    // dependsOn(":example:check")
+    // dependsOn(gradle.includedBuild("library").task(":library:validatePlugins"))
+}
