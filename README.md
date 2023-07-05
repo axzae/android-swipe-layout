@@ -8,7 +8,7 @@
 
 </p>
 
-This is an **AndroidX implementation** for [daimajia's AndroidSwipeLayout](https://github.com/daimajia/AndroidSwipeLayout).
+This is a **AndroidX implementation** of [daimajia's AndroidSwipeLayout](https://github.com/daimajia/AndroidSwipeLayout).
 
 By using this version, you can safety turn off [Jetifier][jetifier] in your project.
 
