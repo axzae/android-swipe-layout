@@ -3,5 +3,10 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_archive">Archive</string>
+    <string name="action_click">Click</string>
+    <string name="lorem_2">理解（りかい）されるということは、一種（いっしゅ）の贅沢（ぜいたく）である。</string>
+    <string name="lorem_3">None is of freedom or of life deserving unless he daily conquers it anew.</string>
 
 </resources>

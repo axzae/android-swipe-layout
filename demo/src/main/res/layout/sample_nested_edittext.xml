@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <com.daimajia.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="80dp"
         android:layout_height="match_parent">
+
         <ImageView
             android:id="@+id/trash"
-            android:src="@drawable/trash"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:background="#FF3B30"
+            android:importantForAccessibility="no"
             android:paddingLeft="25dp"
             android:paddingRight="25dp"
-            android:layout_height="match_parent" />
+            android:src="@drawable/outline_delete_24" />
     </LinearLayout>
 
     <LinearLayout
-        android:padding="10dp"
-        android:background="#ffffff"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:padding="10dp">
+
         <TextView
-            android:text="EditText"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="EditText" />
+
         <EditText
-            android:layout_gravity="right"
             android:layout_width="200dp"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="right" />
     </LinearLayout>
 </com.daimajia.swipe.SwipeLayout>

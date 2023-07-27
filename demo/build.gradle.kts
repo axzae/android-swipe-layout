@@ -36,11 +36,17 @@ android {
             "-Xjvm-default=enable",
         )
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
     implementation(project(":library"))
-    implementation("androidx.recyclerview:recyclerview:1.1.0")
+    implementation("com.google.android.material:material:1.9.0")
+    implementation("androidx.recyclerview:recyclerview:1.3.1")
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     implementation("com.daimajia.easing:library:1.0.0@aar")
     implementation("com.daimajia.androidanimations:library:1.1.2@aar")
     implementation("com.nineoldandroids:library:2.4.0")

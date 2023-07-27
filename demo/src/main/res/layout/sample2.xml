@@ -1,53 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <com.daimajia.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:id="@+id/layout_swipe"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
     <LinearLayout
-        android:tag="Bottom2"
+        android:id="@+id/layout_menu"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:tag="Bottom2">
+
         <ImageView
-            android:id="@+id/magnifier"
-            android:src="@drawable/magnifier"
-            android:layout_width="70dp"
-            android:background="#f7e79c"
+            android:id="@+id/image_magnifier"
+            android:layout_width="@dimen/action_icon_size"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_yellow"
+            android:importantForAccessibility="no"
             android:paddingLeft="25dp"
             android:paddingRight="25dp"
-            android:layout_height="match_parent" />
+            android:src="@drawable/outline_search_24" />
+
         <ImageView
-            android:id="@+id/star"
-            android:src="@drawable/star"
-            android:layout_width="70dp"
-            android:background="#4cd964"
+            android:id="@+id/image_star"
+            android:layout_width="@dimen/action_icon_size"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_green"
+            android:importantForAccessibility="no"
             android:paddingLeft="25dp"
             android:paddingRight="25dp"
-            android:layout_height="match_parent" />
+            android:src="@drawable/outline_star_24" />
+
         <ImageView
-            android:id="@+id/trash"
-            android:src="@drawable/trash"
-            android:layout_width="70dp"
-            android:background="@drawable/red"
+            android:id="@+id/image_trash"
+            android:layout_width="@dimen/action_icon_size"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_red"
+            android:importantForAccessibility="no"
             android:paddingLeft="25dp"
             android:paddingRight="25dp"
-            android:layout_height="match_parent" />
+            android:src="@drawable/outline_delete_24" />
     </LinearLayout>
 
     <LinearLayout
-        android:padding="10dp"
-        android:orientation="vertical"
-        android:background="@drawable/white"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_item"
+        android:orientation="vertical"
+        android:padding="10dp">
+
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:tag="Hover"
-            android:text="理解（りかい）されるということは、一種（いっしゅ）の贅沢（ぜいたく）である。"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:text="@string/lorem_2" />
+
         <Button
-            android:visibility="invisible"
-            android:id="@+id/click"
-            android:text="Click"
+            android:id="@+id/button_click"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="@string/action_click"
+            android:visibility="invisible" />
     </LinearLayout>
 </com.daimajia.swipe.SwipeLayout>
